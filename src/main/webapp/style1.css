@@ -1,0 +1,135 @@
+@charset "ISO-8859-1";
+@charset "ISO-8859-1";
+h1{
+	size:30px;
+	text-align: center;
+}
+ul{
+	text-align:center;	
+}
+ul.a{
+	text-align:right;
+	margin-right: 20px;	
+}
+li.l{
+	display:inline-table;
+	padding:10px;
+ 	font-size:20px;	
+}
+li{
+	display:inline-table;
+	padding:10px;
+ 	font-size:20px;	
+	text-shadow: 0 0 3px #0080c0;
+}
+li a.a1:hover{
+	color:#ff8040;
+	font-size:20px;
+}
+
+body{
+	color:black;
+	font-family:serif;
+	text-align:center;
+	background-image:url("img3.jpeg");
+	  background-size: cover;
+	
+}
+.header{
+	color:#0080c0;
+	width:100%;
+	height:80px;
+	background-color:#ffffff;	
+	padding: 3px;	
+}
+.header1{
+	color:black;
+	font-family:serif;
+	text-align:center;
+	 background: url(img5.jpg) no-repeat center center fixed; 
+  background-size: cover;
+	
+
+	}
+
+.formdata
+{
+	width:400px;
+	height:auto;
+	text-align:center;
+	background-color:blue;
+	border:2px solid white;
+	border-radius:15px;
+	margin-top:10px;
+	display:inline-block;
+	position:absolute-right;
+}
+.formdata1
+{
+	width:auto;
+	height:auto;
+	text-align:center;
+	border:2px solid white;
+	border-radius:6px;
+	margin-top:10px;
+	display:inline-block;
+}
+.formcontrol
+{
+	 padding: 10px;
+	 height: 5px;
+	 margin-top: 10px;
+}
+a{
+	text-decoration: none;
+	font-size: 18px;
+	color:Yellow;
+}
+a.a1{
+	text-decoration: none;
+	font-size: 18px;
+	color:#0080c0;
+}
+a.a2{
+	text-decoration: none;
+	font-size: 18px;
+	color:#ff0080;
+}
+
+.formsubmitbutton
+{
+	width: 100px;
+	height: 25px;
+	border-radius: 20px;
+	margin-top: 10px;		
+}
+.errors
+{
+	color:yellow;
+	font-size: 22px;
+}
+.select-box{
+   width:170px;
+   height:24px;
+   overflow: hidden;
+   border: 1px solid #ccc;
+   margin:auto;
+   border-radius:6px
+}
+.select-field{
+	border:none;
+   text-shadow: 0 0 3px #0080c0;
+   font-size:16px;
+   color:#0080c0;
+}
+table.t1{
+	background-color:#c0c0c0; 
+	text-align:center;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	align:center;
+}
+button{
+	background-color:#0080c0;
+	color:white; 
+}
