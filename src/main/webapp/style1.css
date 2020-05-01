@@ -74,6 +74,18 @@ body{
 	margin-top:10px;
 	display:inline-block;
 }
+.formdata2
+{
+	width:auto;
+	height:auto;
+	text-align:center;
+	border:2px solid black;
+	border-radius:6px;
+	margin-top:10px;
+	background-color:"skyblue";
+	display:inline-block;
+}
+
 .formcontrol
 {
 	 padding: 10px;
@@ -88,7 +100,7 @@ a{
 a.a1{
 	text-decoration: none;
 	font-size: 18px;
-	color:#0080c0;
+	color:#ffffff;
 }
 a.a2{
 	text-decoration: none;

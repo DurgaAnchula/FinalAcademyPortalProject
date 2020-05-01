@@ -1,9 +1,10 @@
 package com.cts.Academyportal.Services;
 
-import com.cts.Academyportal.models.AdminLogin;
 import com.cts.Academyportal.models.AdminReg;
-
+import com.cts.Academyportal.models.ForgotUid;
 public interface AdminServices {
-	public int login(AdminLogin adminlogin);
-	public int CreateAdmin(AdminReg admin);
+	public Long fid(ForgotUid fuid);
+	/*public Long CreateAdmin(AdminReg admin);*/
+
+
 }

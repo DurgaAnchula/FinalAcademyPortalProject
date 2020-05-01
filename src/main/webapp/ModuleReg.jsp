@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -7,49 +7,18 @@
 <meta charset="ISO-8859-1">
 <title>Module Registration page</title>
 <link rel="stylesheet" type="text/css" href="/style1.css"/>
-<script type="text/javascript">
 
-function validate(){
-	var technology=document.forms["modulesform"]["Technology"].value;
-	if(technology=='')
-		{
-	alert("please update the mandatory fields");	
-	return false
-		}
-	
-	var executiontype=document.forms["modulesform"]["Executiontype"].value;
-	if(executiontype=='')
-	{
-alert("please update the mandatory fields");	
-return false
-	}
-
-	var certificationtype=document.forms["modulesform"]["certificationtype"].value;
-	if(certificationtype=='')
-	{
-alert("please update the mandatory fields");	
-return false
-	}
-	var certificationname=document.forms["modulesform"]["certificationname"].value;
-	if(certificationname=='')
-	{
-alert("please update the mandatory fields");	
-return false
-	}
-
-}
-
-</script>
 </head>
 
-<body align="right">
+<body>
 <h1>ACADEMY PORTAL</h1>
-</div>
+
 <div class="formdata">
-<form:form name="modulesform" onsubmit="return validate()" action="modulereg" modelAttribute="modules" method="post">
+<form:form name="modulesform" onclick="return validate()" action="modulereg" modelAttribute="modules" method="post">
 <!-- First Name, Last Name, Age, Gender, Contact Number, Admin Id, Password -->
-<table>
 <h2>Modules Registration</h2>
+<table>
+
 <tr>
 <td>Technology</td>
 <td><form:input path="Technology" id="technology" name="technology"/></td>
@@ -84,8 +53,48 @@ return false
 <tr>
 </table>
 <input type="submit" value ="Register" class="formsubmitbutton"/>
-<a href="log" class="a2">Back</a>
 </form:form>
+</div>
+<br>
+<a href="logout" class="a2">Back</a><br>
 ${message}
+
+
+
+<script type="text/javascript">
+
+function validate(){
+	var technology=document.forms["modulesform"]["Technology"];
+	if(technology.value=='')
+		{
+		technology.style.border="2px solid red";
+	alert("please update the mandatory fields");	
+	return false
+		}
+	
+	var executiontype=document.forms["modulesform"]["Executiontype"];
+	if(executiontype.value=='')
+	{
+	executiontype.style.border="2px solid red";
+alert("please update the mandatory fields");	
+return false
+	}
+
+	var certificationtype=document.forms["modulesform"]["certificationtype"];
+	if(certificationtype.value=='')
+	{
+		certificationtype.style.border="2px solid red";
+alert("please update the mandatory fields");	
+return false
+	}
+	var certificationname=document.forms["modulesform"]["certificationname"];
+	if(certificationname.value=='')
+	{
+		certificationname.style.border="2px solid red";
+alert("please update the mandatory fields");	
+return false
+	}
+}
+</script>
 </body>
-</html>
+</html>--%>

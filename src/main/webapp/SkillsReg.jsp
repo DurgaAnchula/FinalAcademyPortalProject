@@ -10,26 +10,23 @@
 <script type="text/javascript">
 
 function validate(){
-	var skillfamily=document.forms["skillsform"]["skillfamily"].value;
-	if(skillfamily=='')
+	var skillfamily=document.forms["skillsform"]["skillfamily"];
+	if(skillfamily.value=='')
 		{
+		skillfamily.style.border="2px solid red";
 	alert("please update the mandatory fields");	
 	return false
 		}
 	
-	var skillid=document.forms["skillsform"]["skillid"].value;
-	if(skillid=='')
-	{
-alert("please update the mandatory fields");	
-return false
-	}
 
-	var skillname=document.forms["skillsform"]["skillname"].value;
-	if(skillname=='')
+	var skillname=document.forms["skillsform"]["skillname"];
+	if(skillname.value=='')
 	{
+	skillname.style.border="2px solid red";
 alert("please update the mandatory fields");	
 return false
 	}
+	
 
 }
 
@@ -40,7 +37,7 @@ return false
 <h1>ACADEMY PORTAL</h1>
 </div>
 <div class="formdata">
-<form:form name="skillsform" onsubmit="return validate()" action="skillreg" modelAttribute="skills" method="post">
+<form:form name="skillsform" onsubmit="return validate()" action="skillsreg" modelAttribute="skills" method="post">
 <!-- First Name, Last Name, Age, Gender, Contact Number, Admin Id, Password -->
 <table>
 <h2>skills Registration</h2>
@@ -55,15 +52,9 @@ return false
 </td>
 </tr>
 <tr>
-<td>SkillId:</td>
-<td><form:input path="skillId" id="skillid" name="skillid"/></td>
-</tr>
-<tr>
-<tr>
 <td>SkillName:</td>
 <td><form:input path="skillname" id="skillname" name="skillname"/></td>
 </tr>
-<tr>
 </table>
 <input type="submit" value ="Register" class="formsubmitbutton"/>
 <a href="logout" class="a2">Back</a>

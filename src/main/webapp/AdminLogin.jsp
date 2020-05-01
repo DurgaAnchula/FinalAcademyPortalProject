@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,13 +41,13 @@ function validate(){
 </tr>
 <tr>
 <td>Password:</td>
-<td><form:input path="password" class="formcontrol" id="password"/></td>
+<td><form:input path="password" class="formcontrol" id="password" type="password"/></td>
 </tr>
 </table>
 <input type="submit" value="submit" class="formsubmitbutton"/>
 </form:form>
 <ul>
-<li class="l"><a href="#">Forgot Userid</a></li>
+<li class="l"><a href="forgotuid">Forgot Userid</a></li>
 <li class="l"><a href="#">Forgot Password</a></li>
 </ul>
 <a href="/">Home</a>

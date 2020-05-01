@@ -9,5 +9,6 @@ import com.cts.Academyportal.models.SkillsReg;
 @Repository
 	public interface AdminDao  extends CrudRepository<AdminReg,Long>{
 	public AdminReg findByUserId(long userId);
-	//public AdminReg findByName(String firstname);
+	public AdminReg findByContactNumber(String contactNumber);
+
 }

@@ -1,17 +1,33 @@
 package com.cts.Academyportal.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name="modules")
 public class ModuleReg {
 
 	@Id
+	@SequenceGenerator(name="moduleSequence",initialValue = 4001, allocationSize = 1,sequenceName = "MODULE_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "moduleSequence")
+	private int mid;
+	
 	@Column
-	public String Technology;
+	public String technology;
 	@Column
 	public String Proficiencylevel;
 	@Column
@@ -20,11 +36,28 @@ public class ModuleReg {
 	public String certificationtype;
 	@Column
 	public String certificationname;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public int getMid() {
+		return mid;
+	}
+	public void setMid(int mid) {
+		this.mid = mid;
+	}
+	
 	public String getTechnology() {
-		return Technology;
+		return technology;
 	}
 	public void setTechnology(String technology) {
-		Technology = technology;
+		this.technology = technology;
 	}
 	public String getProficiencylevel() {
 		return Proficiencylevel;
@@ -52,7 +85,7 @@ public class ModuleReg {
 	}
 	@Override
 	public String toString() {
-		return "ModuleReg [Technology=" + Technology + ", Proficiencylevel=" + Proficiencylevel + ", Executiontype="
+		return "ModuleReg [Technology=" + technology + ", Proficiencylevel=" + Proficiencylevel + ", Executiontype="
 				+ Executiontype + ", certificationtype=" + certificationtype + ", certificationname="
 				+ certificationname + "]";
 	}

@@ -14,7 +14,7 @@
 <ul>
 <li><a href="admin">Admin</a></li>
 <li><a href="employee">Employee</a></li>
-<li><a href="#">Faculty</a></li>
+<li><a href="faculty">Faculty</a></li>
 </ul>
 </div>
 </div>

@@ -1,21 +1,26 @@
 package com.cts.Academyportal.models;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 	@Entity
-	@Table(name="admin")
-	public class AdminReg {
+	@Table(name="faculty")
+	public class Faculty {
 		@Id
 		@Column
-		@SequenceGenerator(name="mysequence",initialValue=202020,allocationSize=1,sequenceName="El_ADMIN_SEQUENCE")
-		@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="mysequence")
+		@SequenceGenerator(name="mysequence2",initialValue=404040,allocationSize=1,sequenceName="El_FACULTY_SEQUENCE")
+		@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="mysequence2")
 		private long userId;
 		@Column
 		private String firstName;
@@ -23,7 +28,6 @@ import javax.persistence.Table;
 		private String lastName;
 		@Column
 		private String DOB;
-		
 		@Column
 		private String gender; 
 		@Column
@@ -32,6 +36,16 @@ import javax.persistence.Table;
 		private String Email;
 		@Column
 		private String password;
+		@Column
+		private String skillfamily;
+		@Column
+		private String proficiencylevel;
+		@Column
+		private int skillid;
+		@ElementCollection
+		private List<String> skillname;
+		@Column
+		private int teachingtime;
 		@Column
 		private String secretquestion1;
 		@Column
@@ -45,6 +59,15 @@ import javax.persistence.Table;
 		@Column
 		private String answer3;
 
+		@Column
+		private String status;
+		
+		public String getStatus() {
+			return status;
+		}
+		public void setStatus(String status) {
+			this.status = status;
+		}
 		public long getUserId() {
 			return userId;
 		}
@@ -75,6 +98,12 @@ import javax.persistence.Table;
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
+		public List<String> getSkillname() {
+			return skillname;
+		}
+		public void setSkillname(List<String> skillname) {
+			this.skillname = skillname;
+		}
 		public String getContactNumber() {
 			return contactNumber;
 		}
@@ -93,6 +122,19 @@ import javax.persistence.Table;
 		public void setPassword(String password) {
 			this.password = password;
 		}
+		public String getSkillfamily() {
+			return skillfamily;
+		}
+		public void setSkillfamily(String skillfamily) {
+			this.skillfamily = skillfamily;
+		}
+		public String getProficiencylevel() {
+			return proficiencylevel;
+		}
+		public void setProficiencylevel(String proficiencylevel) {
+			this.proficiencylevel = proficiencylevel;
+		}
+		
 		public String getSecretquestion1() {
 			return secretquestion1;
 		}
@@ -129,15 +171,27 @@ import javax.persistence.Table;
 		public void setAnswer3(String answer3) {
 			this.answer3 = answer3;
 		}
+		public int getSkillid() {
+			return skillid;
+		}
+		public void setSkillid(int skillid) {
+			this.skillid = skillid;
+		}
+		public int getTeachingtime() {
+			return teachingtime;
+		}
+		public void setTeachingtime(int teachingtime) {
+			this.teachingtime = teachingtime;
+		}
 		@Override
 		public String toString() {
-			return "AdminReg [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", DOB=" + DOB
+			return "Faculty [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", DOB=" + DOB
 					+ ", gender=" + gender + ", contactNumber=" + contactNumber + ", Email=" + Email + ", password="
-					+ password + ", secretquestion1=" + secretquestion1 + ", answer1=" + answer1 + ", secretquestion2="
+					+ password + ", skillfamily=" + skillfamily + ", proficiencylevel=" + proficiencylevel
+					+ ", skillid=" + skillid + ", skillname=" + skillname + ", teachingtime=" + teachingtime
+					+ ", secretquestion1=" + secretquestion1 + ", answer1=" + answer1 + ", secretquestion2="
 					+ secretquestion2 + ", answer2=" + answer2 + ", secretquestion3=" + secretquestion3 + ", answer3="
-					+ answer3 + "]";
+					+ answer3 + ", status=" + status + "]";
 		}
 		
-	}
-
-
+}

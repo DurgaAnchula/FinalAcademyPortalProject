@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Employee Login</title>
+<title>Faculty Login</title>
 <link rel="stylesheet" type="text/css" href="/style1.css"/>
 <script type="text/javascript">
 function validate(){
@@ -30,9 +30,9 @@ function validate(){
 </div>
 <div class="formdata">
 <div align="center">
-<form:form onsubmit="return validate()" action="employeeloginverify" method="post" modelAttribute="employeelogin">
+<form:form onsubmit="return validate()" action="facultyloginverify" method="post" modelAttribute="facultylogin">
 <table>
-<h2>Employee Login</h2>
+<h2>FacultyLogin</h2>
 <tr>
 <td>UserId:</td>
 <td><form:input path="userId" class="formcontrol" id="userid"/></td>

@@ -33,86 +33,180 @@ public class EmployeeReg {
 	@Column
 	private String password;
 	@Column
-	private String secretQuestion;
+	private String secretquestion1;
 	@Column
-	private String answer;
+	private String answer1;
+	@Column
+	private String secretquestion2;
+	@Column
+	private String answer2;
+	@Column
+	private String secretquestion3;
+	@Column
+	private String answer3;
+
 	@Column
 	private String status;
+
+
+	public long getUserId() {
+		return UserId;
+	}
+
+
+	public void setUserId(long userId) {
+		UserId = userId;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getDOB() {
+		return DOB;
+	}
+
+
+	public void setDOB(String dOB) {
+		DOB = dOB;
+	}
+
+
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+
+	public String getEmail() {
+		return Email;
+	}
+
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public String getSecretquestion1() {
+		return secretquestion1;
+	}
+
+
+	public void setSecretquestion1(String secretquestion1) {
+		this.secretquestion1 = secretquestion1;
+	}
+
+
+	public String getAnswer1() {
+		return answer1;
+	}
+
+
+	public void setAnswer1(String answer1) {
+		this.answer1 = answer1;
+	}
+
+
+	public String getSecretquestion2() {
+		return secretquestion2;
+	}
+
+
+	public void setSecretquestion2(String secretquestion2) {
+		this.secretquestion2 = secretquestion2;
+	}
+
+
+	public String getAnswer2() {
+		return answer2;
+	}
+
+
+	public void setAnswer2(String answer2) {
+		this.answer2 = answer2;
+	}
+
+
+	public String getSecretquestion3() {
+		return secretquestion3;
+	}
+
+
+	public void setSecretquestion3(String secretquestion3) {
+		this.secretquestion3 = secretquestion3;
+	}
+
+
+	public String getAnswer3() {
+		return answer3;
+	}
+
+
+	public void setAnswer3(String answer3) {
+		this.answer3 = answer3;
+	}
+
 
 	public String getStatus() {
 		return status;
 	}
+
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public long getUserId() {
-		return UserId;
-	}
-	public long setUserId(long UserId) {
-		return UserId = UserId;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public String getDOB() {
-		return DOB;
-	}
-	public void setDOB(String dOB) {
-		DOB = dOB;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getContactNumber() {
-		return contactNumber;
-	}
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getSecretQuestion() {
-		return secretQuestion;
-	}
-	public void setSecretQuestion(String secretQuestion) {
-		this.secretQuestion = secretQuestion;
-	}
-	public String getAnswer() {
-		return answer;
-	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+
+
 	@Override
 	public String toString() {
 		return "EmployeeReg [UserId=" + UserId + ", firstName=" + firstName + ", lastName=" + lastName + ", DOB=" + DOB
-				+ ", gender=" + gender + ", contactNumber=" + contactNumber + ", Email=" + Email
-				+ ", password=" + password + ", secretQuestion=" + secretQuestion + ", answer=" + answer + ", status="
-				+ status + "]";
+				+ ", gender=" + gender + ", contactNumber=" + contactNumber + ", Email=" + Email + ", password="
+				+ password + ", secretquestion1=" + secretquestion1 + ", answer1=" + answer1 + ", secretquestion2="
+				+ secretquestion2 + ", answer2=" + answer2 + ", secretquestion3=" + secretquestion3 + ", answer3="
+				+ answer3 + ", status=" + status + "]";
 	}
-	
 		
 
 }
