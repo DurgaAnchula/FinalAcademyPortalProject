@@ -20,7 +20,6 @@ Select Skill :
 
 <select name ="skill">
 <c:forEach items="${skills}" var="skill">
-
 <option>${skill.skillname}</option>
 </c:forEach>
 </select>

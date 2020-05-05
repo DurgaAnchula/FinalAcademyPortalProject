@@ -14,23 +14,20 @@
 <table>
 <tr>
 <td>
-Skill Name : ${skill.skillname }
+Skill Name : ${skill.skillname}
 <input type="hidden" name="sid" value="${skill.skillid}">
 Modules: 
 <select name="module">
 
-<c:forEach items="${mlist }" var="m">
-
-<option value="${m.mid}">${m.mid }-${m.technology}</option>
+<c:forEach items="${mlist}" var="m">
+<option value="${m.mid}">${m.mid }-${m.technology}-${m.proficiencylevel}-${m.executiontype}-${m.certificationtype}-${m.certificationname}</option>
 </c:forEach>
 </select>
 </td>
 </tr>
 </table>
 <input type="submit" value="Map"> 
-</div>
 </form>
-
-
+</div>
 </body>
 </html>

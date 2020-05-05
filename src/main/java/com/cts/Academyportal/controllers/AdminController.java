@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cts.Academyportal.Dao.AdminDao;
 import com.cts.Academyportal.Dao.BatchDao;
@@ -167,11 +170,11 @@ import com.cts.Academyportal.models.SkillsReg;
 			public String rejectreq(@RequestParam("name") long name,Model model) {
 				EmployeeReg ereg=edao.findById(name);
 				String status=ereg.getStatus();
-				ereg.setStatus("Yes");
+				ereg.setStatus("no");
 			     edao.save(ereg);
-				if(ereg.getStatus().equals(status)) {
+				/*if(ereg.getStatus().equals(status)) {
 					model.addAttribute("message","Unable to update");
-				}
+				}*/
 				return "AdminHome";
 			}
 			@GetMapping(value="/req1")
@@ -199,11 +202,11 @@ import com.cts.Academyportal.models.SkillsReg;
 			public String rejectreq1(@RequestParam("name") long name,Model model) {
 				Faculty freg=fdao.findById(name);
 				String status=freg.getStatus();
-				freg.setStatus("Yes");
+				freg.setStatus("no");
 			     fdao.save(freg);
-				if(freg.getStatus().equals(status)) {
+				/*if(freg.getStatus().equals(status)) {
 					model.addAttribute("message","Unable to update");
-				}
+				}*/
 				return "AdminHome";
 			}
 
@@ -277,6 +280,34 @@ import com.cts.Academyportal.models.SkillsReg;
 				return "ForgotUid";
 			}
 
+			@GetMapping("/forgotpswd")
+			public String fpwd(Model model){
+				model.addAttribute("name1",new ForgotUid());
+				return "forgotpwd";
+			}
+			@PostMapping("/forgotpwd1")
+			public String fpwd1(@ModelAttribute("name1") ForgotUid fid,Model model)
+			{
+				boolean b=adminservices.fpwd(fid);
+				if(b==true)
+				{
+			  	  return "resetPwd";
+				}
+				else
+				{
+					model.addAttribute("message", "Incorrect credentials");
+					return "resetPwd";
+				}
+			}
+			@PostMapping("/updatepwd")
+			public String updatePassword(@ModelAttribute("name1") ForgotUid forgetUID,Model model)
+			{
+				AdminReg ad =dao.findByUserId(forgetUID.getUid());
+				ad.setPassword(forgetUID.getPwd());
+				dao.save(ad);
+				model.addAttribute("message","your password has been updated");
+				return "resetPwd";
+			}
 
 			
 			@GetMapping("/mapModuleskill")
@@ -299,6 +330,7 @@ import com.cts.Academyportal.models.SkillsReg;
 			SkillsReg sreg = sdao.findBySkillname(skill);
 		
 				List<ModuleReg> mlist = new ArrayList<ModuleReg>();
+				
 				mdao.findAll().forEach(t->{
 					
 					if(t.getTechnology().equalsIgnoreCase(skill))
@@ -306,7 +338,7 @@ import com.cts.Academyportal.models.SkillsReg;
 						mlist.add(t);
 					}
 				});
-				
+			
 				model.addAttribute("skill", sreg);
 				model.addAttribute("mlist", mlist);
 				return "skillmodulemapper2";
@@ -323,29 +355,112 @@ import com.cts.Academyportal.models.SkillsReg;
 				SkillsReg s = sdao.save(sr);
 				model.addAttribute("message", "Mapped Successfully");
 				return "AdminHome";
+				//return "skillmodulemapper2";
+
 			}
 			
 			
 			@GetMapping(value="/batches")
 			 public String batch(Model model) {
+				
+				List<SkillsReg> skills = new ArrayList<SkillsReg>();
+				
+				
+				List<String> techs = new ArrayList<String>();
+				
+				sdao.findAll().forEach(t->{
+					skills.add(t);
+				});
+				
+				
+				
+				
+				mdao.findAll().forEach(t->{
+					
+					techs.add(t.getTechnology());
+				});
 				Batch breg=new Batch();
-				 model.addAttribute("batches",breg);
+				model.addAttribute("batch", breg);
+				 model.addAttribute("skills",skills);
+				 model.addAttribute("techs", techs);
 				 return "batchregistration";
 			 }
 			
-		/*	@PostMapping(value="/batchreg")
-			public String batchreg(@ModelAttribute("batches") Batch batch,Model model) {
-				
+			@PostMapping(value="/batchreg")
+			public String batchreg(@ModelAttribute("batch") Batch batch,Model model) {
+			  batch.setStatus("no");
 				Batch b= bdao.save(batch);
 				if(b!=null) {
-				model.addAttribute("message","Skills Registered successfully.");
-				return "SkillsReg";
+				model.addAttribute("message","Batch Registered successfully.");
+				return "AdminHome";
 				}else {
 					model.addAttribute("message","Oops...Something went wrong.");
 					return "failure";
 				}
-			}*/
+			}
 
+			
+			@GetMapping("/getModules")
+			public @ResponseBody String getModulesInfo(HttpServletRequest request,HttpServletResponse response)
+			{
+				int skillid = Integer.parseInt(request.getParameter("q"));
+				Optional<SkillsReg> sr = sdao.findById(skillid);
+				String module="";
+				if(sr.isPresent())
+				{
+					SkillsReg reg = sr.get();
+					
+					List<ModuleReg> modules = reg.getModules();
+					
+					for(ModuleReg mr :modules)
+					{
+					module+="<option value='"+mr.getMid()+"'>"+mr.getMid()+"-"+mr.getTechnology()+"</option>"	;
+					}
+					
+				}
+				
+				return module;
+			}
+ 			
+			@GetMapping("/getfaculty")
+			
+			public @ResponseBody String getFacult(HttpServletRequest request, HttpServletResponse response)
+			{
+				String faculty="";
+				String skillname=request.getParameter("q");
+				
+				List<Faculty> list = new ArrayList<Faculty>();
+				
+				fdao.findAll().forEach(t->{
+					
+					List<String> skillnames =t.getSkillname();
+					int count =0;
+					for(String s:skillnames)
+					{
+						if(s.equalsIgnoreCase(skillname))
+						{
+							count++;
+						}
+					}
+					
+					if((count>0) && (t.getStatus().equalsIgnoreCase("yes")))
+					{
+						list.add(t);
+					}
+				});
+				
+				
+				
+				for(Faculty f:list)
+
+			{
+					faculty+="<option value='"+f.getUserId()+"'>"+f.getUserId()+"-"+f.getFirstName()+"-"+f.getProficiencylevel()+"</option>";
+					}
+				
+				return faculty;
+			}
+			
+			
 			
 			
 			

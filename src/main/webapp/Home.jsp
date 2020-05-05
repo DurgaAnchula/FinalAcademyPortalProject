@@ -17,6 +17,7 @@
 <li><a href="faculty">Faculty</a></li>
 </ul>
 </div>
+${message }
 </div>
 </body>
 </html>

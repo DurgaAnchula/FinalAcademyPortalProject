@@ -123,7 +123,6 @@ if(userid==null)
 
 <div class="header">
 <h1>Welcome <span><%=session.getAttribute("name")%></span></h1>
-<h1>${message }</h1>
 <ul class="a">
 <li><a href="req" class="a1">Employee Registration Request</a></li><br>
 <li><a href="req1" class="a1">Faculty Registration Request</a></li><br>
@@ -132,7 +131,7 @@ if(userid==null)
 <li><a href="mapModuleskill" class="a1">skill/Module Mapping</a></li><br>
 <li><a href="batches" class="a1">Batch Registration</a></li><br>
 <li><a href="#" class="a1">Batch Nomination Request</a></li><br>
-<li><a href="#" class="a1">Report Management</a></li><br>
+<li><a href="Report.jsp" class="a1">Report Management</a></li><br>
 <li><a href="#" class="a1">Help Requests</a></li><br>
 <li><a href="adminlogout" class="a1">Logout</a></li>
 </ul>

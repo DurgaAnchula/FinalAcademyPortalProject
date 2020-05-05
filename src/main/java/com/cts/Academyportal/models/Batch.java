@@ -1,6 +1,7 @@
 package com.cts.Academyportal.models;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.annotation.Generated;
 import javax.persistence.Column;
@@ -39,11 +40,22 @@ public class Batch {
 	@Column
 	private Long facultyId;
 	@Column
-	private Date BatchStartDate;
+	private Date batchStartDate;
 	@Column
-	private Date BatchEndDate;
+	private Date batchEndDate;
 	@Column
-	private String classroomname;
+	private int batchCapacity;
+	@Column
+	private String classroom;
+	@Column
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public int getBatchId() {
 		return batchId;
 	}
@@ -75,28 +87,43 @@ public class Batch {
 		this.facultyId = facultyId;
 	}
 	public Date getBatchStartDate() {
-		return BatchStartDate;
+		return batchStartDate;
 	}
 	public void setBatchStartDate(Date batchStartDate) {
-		BatchStartDate = batchStartDate;
+		
+		
+		
+		this.batchStartDate =batchStartDate ;
 	}
 	public Date getBatchEndDate() {
-		return BatchEndDate;
+		return batchEndDate;
 	}
 	public void setBatchEndDate(Date batchEndDate) {
-		BatchEndDate = batchEndDate;
+		
+		this.batchEndDate = batchEndDate;
+
 	}
-	public String getClassroomname() {
-		return classroomname;
+	public int getBatchCapacity() {
+		return batchCapacity;
 	}
-	public void setClassroomname(String classroomname) {
-		this.classroomname = classroomname;
+	public void setBatchCapacity(int batchCapacity) {
+		this.batchCapacity = batchCapacity;
+	}
+	
+	
+	
+	public String getClassroom() {
+		return classroom;
+	}
+	public void setClassroom(String classroom) {
+		this.classroom = classroom;
 	}
 	@Override
 	public String toString() {
 		return "Batch [batchId=" + batchId + ", skillId=" + skillId + ", moduleId=" + moduleId + ", technology="
-				+ technology + ", facultyId=" + facultyId + ", BatchStartDate=" + BatchStartDate + ", BatchEndDate="
-				+ BatchEndDate + ", classroomname=" + classroomname + "]";
+				+ technology + ", facultyId=" + facultyId + ", batchStartDate=" + batchStartDate + ", batchEndDate="
+				+ batchEndDate + ", batchCapacity=" + batchCapacity + ", classroomName=" + classroom + ", status="
+				+ status + "]";
 	}
-
+	
 }

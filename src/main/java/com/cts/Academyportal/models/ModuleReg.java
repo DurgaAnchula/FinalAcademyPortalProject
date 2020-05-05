@@ -29,9 +29,9 @@ public class ModuleReg {
 	@Column
 	public String technology;
 	@Column
-	public String Proficiencylevel;
+	public String proficiencylevel;
 	@Column
-	public String Executiontype;
+	public String executiontype;
 	@Column
 	public String certificationtype;
 	@Column
@@ -59,17 +59,21 @@ public class ModuleReg {
 	public void setTechnology(String technology) {
 		this.technology = technology;
 	}
+	
+	
 	public String getProficiencylevel() {
-		return Proficiencylevel;
+		return proficiencylevel;
 	}
 	public void setProficiencylevel(String proficiencylevel) {
-		Proficiencylevel = proficiencylevel;
+		this.proficiencylevel = proficiencylevel;
 	}
+	
+	
 	public String getExecutiontype() {
-		return Executiontype;
+		return executiontype;
 	}
 	public void setExecutiontype(String executiontype) {
-		Executiontype = executiontype;
+		this.executiontype = executiontype;
 	}
 	public String getCertificationtype() {
 		return certificationtype;
@@ -85,8 +89,8 @@ public class ModuleReg {
 	}
 	@Override
 	public String toString() {
-		return "ModuleReg [Technology=" + technology + ", Proficiencylevel=" + Proficiencylevel + ", Executiontype="
-				+ Executiontype + ", certificationtype=" + certificationtype + ", certificationname="
+		return "ModuleReg [Technology=" + technology + ", Proficiencylevel=" + proficiencylevel + ", Executiontype="
+				+ executiontype + ", certificationtype=" + certificationtype + ", certificationname="
 				+ certificationname + "]";
 	}
 	

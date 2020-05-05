@@ -17,7 +17,7 @@ if(userid==null)
 %>
 <h1>Welcome <span><%=session.getAttribute("name")%></span></h1>
 <ul class="a">
-<li><a href="#" class="a1">BatchMapping</a></li><br>
+<li><a href="batchreq1" class="a1">BatchMapping</a></li><br>
 <li><a href="#" class="a1">Help</a></li><br>
 <li><a href="facultylogout" class="a1">Logout</a></li>
 </ul>

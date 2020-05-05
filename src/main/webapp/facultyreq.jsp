@@ -48,7 +48,6 @@
 <td colspan="7" align="center">
 <a href="accept1?name=${admin1.getUserId()}"><button>Approve</button></a>
 <a href="reject1?name=${admin1.getUserId()}"><button>Reject</button></a>
-<a href="logout"><button>Back</button></a>
 </td>
 </tr>
 </table>
@@ -61,4 +60,5 @@ rd.include(request, response);
 %>
 
 </body>
+<a href="logout"><button>Back</button></a>
 </html>

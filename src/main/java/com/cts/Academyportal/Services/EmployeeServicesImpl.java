@@ -1,52 +1,29 @@
 package com.cts.Academyportal.Services;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.cts.Academyportal.Dao.AdminDao;
+import com.cts.Academyportal.Dao.EmployeeDao;
 import com.cts.Academyportal.models.AdminReg;
+import com.cts.Academyportal.models.EmployeeReg;
 import com.cts.Academyportal.models.ForgotUid;
+
+
 @Service
 @Component
-public  class AdminServiceImpl implements AdminServices {
+public class EmployeeServicesImpl implements EmployeeServices {
 
+	
 	@Autowired
-	private AdminDao dao;
-	/*@Override
-	public Long CreateAdmin(AdminReg admin) {
-		AdminReg a=dao.findByUserId(admin.getContactNumber());
-		if(a==null) {
-			AdminReg a1=dao.save(admin);
-			if (a1 != null) {
-				return 1;
-			} else {
-				return 2;
-			}
-		}
-		return 0;
+	private EmployeeDao dao;
 
-	}
-	/*@Override
-	public int login(AdminLogin adminlogin) {
-		AdminReg a =dao.findByUserId(adminlogin.getUserId());
-		//AdminReg ad = a.get();
-
-		 if(a==null)
-		 {
-		   return 1;
-		 }
-		 else
-		 {
-		 return 2;
-		 }
-	}*/
-
+	
 	@Override
 	public Long fid(ForgotUid fuid) {
 
-		AdminReg a1=dao.findByContactNumber(fuid.getPhno());
+		EmployeeReg a1=dao.findByContactNumber(fuid.getPhno());
 		  if(a1!=null)
 		  {
 			int a2= a1.getSecretquestion1().compareTo(fuid.getQstn1());
@@ -66,10 +43,10 @@ public  class AdminServiceImpl implements AdminServices {
 		return null;
 		}
 
-	
 	@Override
 	public boolean fpwd(ForgotUid fuid) {
-		AdminReg a1=dao.findByUserId(fuid.getUid());
+
+		EmployeeReg a1=dao.findById(fuid.getUid());
 		  if(a1!=null)
 		  {
 			int a2= a1.getSecretquestion1().compareTo(fuid.getQstn1());
@@ -90,6 +67,4 @@ public  class AdminServiceImpl implements AdminServices {
 		}
 
 
-	}
-
-
+}

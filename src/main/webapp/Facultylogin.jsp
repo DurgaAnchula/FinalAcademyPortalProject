@@ -45,8 +45,8 @@ function validate(){
 <input type="submit" value="submit" class="formsubmitbutton"/>
 </form:form>
 <ul>
-<li class="l"><a href="#">Forgot Userid</a></li>
-<li class="l"><a href="#">Forgot Password</a></li>
+<li class="l"><a href="forgotfacultyuid">Forgot UserId</a></li>
+<li class="l"><a href="forgotfacultypswd">Forgot Password</a></li>
 </ul>
 <a href="/">Home</a>
 <br>

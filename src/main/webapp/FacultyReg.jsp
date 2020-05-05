@@ -127,10 +127,33 @@ function validate(){
 		
 }
 </script>
+
+<script>
+function showSkillNames(str) {
+	
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("respText").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("respText").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://localhost:9198/getskillNames?q="+str, true);
+  xhttp.send();
+}
+</script>
+
+
 </head>
 <body align="right">
 <h1>ACADEMY PORTAL</h1>
-
+${message}
+<br>
+${msg}
 <div class="formdata">
 <form:form name="adminform" onsubmit="return validate()" action="facultyreg" modelAttribute="faculty" method="post">
 <!-- First Name, Last Name, Age, Gender, Contact Number, Admin Id, Password -->
@@ -171,14 +194,15 @@ function validate(){
 <tr>
 <td>Skill family:</td>
 <td>
-<form:select path="skillfamily" id="skillfamily" name="skillfamily" class="select-box">
- <c:forEach items="${skillsList}" var="sf">
- <form:option value="${sf}">${sf.skillfamily}</form:option>
+<form:select path="skillfamily" id="skillfamily" name="skillfamily" class="select-box" onchange="showSkillNames(this.value)">
+<option value="">select skill family</option>
+ <c:forEach items="${skillfamily}" var="sf">
+ <form:option value="${sf}">${sf}</form:option>
  </c:forEach>
 </form:select>
 </td>
 
-<tr>
+<%--<tr>
 <td>Skill id:</td>
 <td>
 <form:select path="skillid" id="skillid" name="skillid" class="select-box">
@@ -187,15 +211,15 @@ function validate(){
  </c:forEach>
 </form:select>
 </td>
-</tr>
+</tr>--%>
 
 <tr>
 <td>Proficiencylevel:</td>
 <td>
 <form:select path="proficiencylevel" id="proficiencylevel" name="proficiencylevel" class="select-box">
- <c:forEach items="${skillsList}" var="skill">
- <form:option value="${skill.proficiencylevel}">${skill.proficiencylevel}</form:option>
- </c:forEach>
+ <option>high</option>
+ <option>low</option>
+ <option>medium</option>
 </form:select>
 </td>
 </tr>
@@ -203,9 +227,13 @@ function validate(){
 <tr>
 <td>Skillname:</td>
 <td>
- <c:forEach items="${skillsList}" var="skill">
+ <%-- <c:forEach items="${skillsList}" var="skill">
  <form:checkbox path="skillname" value="${skill.skillname}"/>${skill.skillname.toUpperCase()}
-</c:forEach>
+</c:forEach> --%>
+
+<div id="respText">
+
+</div>
 </td>
 </tr>
 <tr>
@@ -265,9 +293,5 @@ Already having account?<a href="facultylogin">Login</a>
 </form:form>
 </div>
 <br>
-<br>
-${message}
-<br>
-${msg}
 </body>
 </html>

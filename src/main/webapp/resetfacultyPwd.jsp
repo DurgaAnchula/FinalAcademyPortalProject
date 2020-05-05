@@ -5,17 +5,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Employee Login</title>
+<title>Reset password</title>
 <link rel="stylesheet" type="text/css" href="/style1.css"/>
 <script type="text/javascript">
 function validate(){
-	var id=document.getElementById("userid").value;
 	var pwd=document.getElementById("password").value;
-	if(id==""){
-		document.getElementById("userid").style.borderColor = "red";
-		alert("please update mandatory highlighted fields");
-		return false;
-		}else if(pwd==""){
+	 if(pwd==""){
 			document.getElementById("password").style.borderColor = "red";
 			alert("please update mandatory highlighted fields");
 				return false;
@@ -28,27 +23,26 @@ function validate(){
 <div class="header">
 <h1>Academy Portal</h1>
 </div>
+<h2>Reset password</h2>
 <div class="formdata">
 <div align="center">
-<form:form onsubmit="return validate()" action="employeeloginverify" method="post" modelAttribute="employeelogin">
+<form:form onsubmit="return validate()" action="updatefacultypwd" method="post" modelAttribute="name1">
 <table>
-<h2>Employee Login</h2>
 <tr>
-<td>UserId:</td>
-<td><form:input path="userId" class="formcontrol" id="userid"/></td>
+<tr>
+<td>
+<form:hidden path="uid"/>
+</td>
 </tr>
 <tr>
 <td>Password:</td>
-<td><form:input path="password" class="formcontrol" id="password" type="password"/></td>
+<td><form:input path="pwd" class="formcontrol" id="pwd" type="password"/></td>
 </tr>
 </table>
 <input type="submit" value="submit" class="formsubmitbutton"/>
 </form:form>
-<ul>
-<li class="l"><a href="forgotemployeeuid">Forgot UserId</a></li>
-<li class="l"><a href="forgotemployeepswd">Forgot Password</a></li>
-</ul>
-<a href="/">Home</a>
+Want to login?<a href="facultylogin">Click here</a>
+<br>
 <br>
 ${message}
 </div>

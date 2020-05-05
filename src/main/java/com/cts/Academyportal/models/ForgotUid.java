@@ -2,6 +2,9 @@ package com.cts.Academyportal.models;
 
 public class ForgotUid {
 
+	
+	private long uid;
+	private String pwd;
 	private String qstn1;
 	private String ans1;
 	private String qstn2;
@@ -9,6 +12,20 @@ public class ForgotUid {
 	private String qstn3;
 	private String ans3;
 	private String phno;
+	
+	public long getUid() {
+		return uid;
+	}
+	public void setUid(long uid) {
+		this.uid = uid;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
 	public String getQstn1() {
 		return qstn1;
 	}
@@ -53,8 +70,8 @@ public class ForgotUid {
 	}
 	@Override
 	public String toString() {
-		return "ForgotUid [qstn1=" + qstn1 + ", ans1=" + ans1 + ", qstn2=" + qstn2 + ", ans2=" + ans2 + ", qstn3="
-				+ qstn3 + ", ans3=" + ans3 + ", phno=" + phno + "]";
+		return "ForgotUid [uid=" + uid + ", pwd=" + pwd + ", qstn1=" + qstn1 + ", ans1=" + ans1 + ", qstn2=" + qstn2
+				+ ", ans2=" + ans2 + ", qstn3=" + qstn3 + ", ans3=" + ans3 + ", phno=" + phno + "]";
 	}
 	
 }

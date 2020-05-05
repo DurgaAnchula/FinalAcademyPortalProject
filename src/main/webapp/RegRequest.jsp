@@ -38,12 +38,13 @@
 <td colspan="7" align="center">
 <a href="accept?name=${admin.getUserId()}"><button>Approve</button></a>
 <a href="reject?name=${admin.getUserId()}"><button>Reject</button></a>
-<a href="logout"><button>Back</button></a>
 
 </td>
 </tr>
 </table>
 </c:forEach>
+<a href="logout"><button>Back</button></a>
+
 ${message}
 </div>
 <%
