@@ -18,7 +18,7 @@ if(userid==null)
 <h1>Welcome <span><%=session.getAttribute("name")%></span></h1>
 <ul class="a">
 <li><a href="#" class="a1">My learnings</a></li><br>
-<li><a href="skillsearch" class="a1">SearchPage</a>
+<li><a href="skillsearch" class="a1">SearchPage</a><br>
 <li><a href="#" class="a1">sortings</a></li><br>
 <li><a href="#" class="a1">Batch Nomination</a></li><br>
 <li><a href="#" class="a1">E-learning Nomination</a></li><br>

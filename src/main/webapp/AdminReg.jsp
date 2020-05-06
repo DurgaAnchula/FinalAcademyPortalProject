@@ -126,7 +126,7 @@ function validate(){
 }
 </script>
 </head>
-<body align="right">
+<body>
 <h1>ACADEMY PORTAL</h1>
 
 <div class="formdata">

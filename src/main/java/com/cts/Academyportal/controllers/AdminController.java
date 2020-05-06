@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cts.Academyportal.Dao.AdminDao;
 import com.cts.Academyportal.Dao.BatchDao;
+import com.cts.Academyportal.Dao.BatchRequestDao;
 import com.cts.Academyportal.Dao.EmployeeDao;
 import com.cts.Academyportal.Dao.FacultyDao;
 import com.cts.Academyportal.Dao.ModuleDao;
@@ -27,6 +28,7 @@ import com.cts.Academyportal.Services.AdminServices;
 import com.cts.Academyportal.models.AdminLogin;
 import com.cts.Academyportal.models.AdminReg;
 import com.cts.Academyportal.models.Batch;
+import com.cts.Academyportal.models.BatchNominationRequest;
 import com.cts.Academyportal.models.EmployeeLogin;
 import com.cts.Academyportal.models.EmployeeReg;
 import com.cts.Academyportal.models.Faculty;
@@ -50,7 +52,8 @@ import com.cts.Academyportal.models.SkillsReg;
 			private EmployeeDao edao;
 			@Autowired
 			private BatchDao bdao;
-
+           @Autowired
+			private BatchRequestDao brdao;
 			@GetMapping(value="/admin")
 			 public String admin(Model model) {
 				AdminReg reg=new AdminReg();
@@ -461,9 +464,63 @@ import com.cts.Academyportal.models.SkillsReg;
 			}
 			
 			
+		@GetMapping(value="/batchreq2")
+			public String req2(Model model) {
+			  List<BatchNominationRequest>  nominations = new ArrayList<BatchNominationRequest>();
 			
 			
+			  brdao.findAll().forEach(t->{if(t.getStatus().equalsIgnoreCase("no")) {
+				  nominations.add(t);
+			  }});
+				List<Batch> list= new ArrayList<Batch>();
+				List<EmployeeReg> employeelist= new ArrayList<EmployeeReg>();
+				
+				for(BatchNominationRequest br:nominations)
+				{
+					list.add(bdao.findById(br.getBatchid()));
+					employeelist.add(edao.findById(br.getEmpid()));
+				}
+				model.addAttribute("emplist",employeelist);
+				model.addAttribute("list",list);
+				model.addAttribute("brlist",nominations);
+				return "batchnomreq";
+			}
 			
+			
+		@GetMapping("/nomaccept")
+		public String acceptnomoination(@RequestParam("nomid") int id)
+		{
+			BatchNominationRequest br = brdao.findById(id).get();
+			
+			Batch b = bdao.findById(br.getBatchid());
+			
+			br.setStatus("yes");
+			int newcapacity =+b.getCurrentBatchCapacity()+1;
+			b.setCurrentBatchCapacity(newcapacity);
+			brdao.save(br);
+			bdao.save(b);
+			return "redirect:/batchreq2";
+			
+		}
+			/*@GetMapping(value="/batchaccept2")
+			public String acceptreq2(@RequestParam("name") int name,Model model) {
+				Batch b=bdao.findById(name);
+				String status=b.getStatus();
+				b.setStatus("yes");
+				bdao.save(b);
+				return "AdminHome";
+			}
+			
+		*/	/*@GetMapping(value="/batchreject2")
+			public String rejectreq2(@RequestParam("name") int name,Model model) {
+		      Batch b1=bdao.findById(name);
+		      String status=b1.getStatus();
+		      b1.setStatus("no");
+		      bdao.save(b1);
+				
+				return "AdminHome";
+			}
+			*/
 			@GetMapping(value="/adminlogout")
 			public String logout(HttpSession session) {
 				session.invalidate();
@@ -471,6 +528,3 @@ import com.cts.Academyportal.models.SkillsReg;
 			}
 
 	}
-
-
-

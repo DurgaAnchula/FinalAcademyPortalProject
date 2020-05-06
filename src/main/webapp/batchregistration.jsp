@@ -64,7 +64,7 @@ function facultyNames(str) {
 <form:form action="batchreg" modelAttribute="batch" method="post">
 
 <table>
-
+<h1>Batch Registration</h1>
 <tr>
 <td> 
 Skill : 

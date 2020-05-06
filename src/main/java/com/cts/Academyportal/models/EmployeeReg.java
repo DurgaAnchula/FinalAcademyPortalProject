@@ -1,11 +1,16 @@
 package com.cts.Academyportal.models;
 
+import java.util.Set;
+
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -44,9 +49,37 @@ public class EmployeeReg {
 	private String secretquestion3;
 	@Column
 	private String answer3;
+	
 
 	@Column
 	private String status;
+	
+	@ManyToMany
+	@JoinTable(name = "employee_batches")
+	private Set<Batch> batches;
+	
+	@Column
+	private String nominationStatus;
+
+
+	public String getNominationStatus() {
+		return nominationStatus;
+	}
+
+
+	public void setNominationStatus(String nominationStatus) {
+		this.nominationStatus = nominationStatus;
+	}
+
+
+	public Set<Batch> getBatches() {
+		return batches;
+	}
+
+
+	public void setBatches(Set<Batch> batches) {
+		this.batches = batches;
+	}
 
 
 	public long getUserId() {
@@ -205,8 +238,8 @@ public class EmployeeReg {
 				+ ", gender=" + gender + ", contactNumber=" + contactNumber + ", Email=" + Email + ", password="
 				+ password + ", secretquestion1=" + secretquestion1 + ", answer1=" + answer1 + ", secretquestion2="
 				+ secretquestion2 + ", answer2=" + answer2 + ", secretquestion3=" + secretquestion3 + ", answer3="
-				+ answer3 + ", status=" + status + "]";
+				+ answer3 + ", status=" + status + ", batches=" + batches + ", nominationStatus=" + nominationStatus
+				+ "]";
 	}
-		
 
 }

@@ -20,5 +20,6 @@ import com.cts.Academyportal.models.SkillsReg;
 	@Query("from SkillsReg s where s.skillname=:sn")
 	public List<SkillsReg> getAllskillsByName(@Param("sn")String name);
 	
+	//public SkillsReg findByModule_Skill(String skillname);
 
 }

@@ -49,7 +49,18 @@ public class Batch {
 	private String classroom;
 	@Column
 	private String status;
+	@Column
+	private int currentBatchCapacity;
+	
 
+	
+	
+	public int getCurrentBatchCapacity() {
+		return currentBatchCapacity;
+	}
+	public void setCurrentBatchCapacity(int currentBatchCapacity) {
+		this.currentBatchCapacity = currentBatchCapacity;
+	}
 	public String getStatus() {
 		return status;
 	}

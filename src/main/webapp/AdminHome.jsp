@@ -5,7 +5,6 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/style1.css">
-
 <style type="text/css">
 .form-popup {
   display: none;
@@ -15,7 +14,6 @@
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
-
 /* Add styles to the form container */
 .form-container {
   max-width: 600px;
@@ -27,7 +25,6 @@
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
   padding:5px;
-
   border: none;
   background: #f1f1f1;
 }
@@ -130,7 +127,7 @@ if(userid==null)
 <li><button  onclick="openForm()">Module Registration</button></li><br>
 <li><a href="mapModuleskill" class="a1">skill/Module Mapping</a></li><br>
 <li><a href="batches" class="a1">Batch Registration</a></li><br>
-<li><a href="#" class="a1">Batch Nomination Request</a></li><br>
+<li><a href="batchreq2" class="a1">Batch Nomination Request</a></li><br>
 <li><a href="Report.jsp" class="a1">Report Management</a></li><br>
 <li><a href="#" class="a1">Help Requests</a></li><br>
 <li><a href="adminlogout" class="a1">Logout</a></li>
@@ -171,7 +168,6 @@ if(userid==null)
 </select>
 </td>
 </tr>
-
 <tr>
 <td>CertificationName:</td>
 <td><input type="text" id="certificationname" name="certificationname"/></td>
@@ -185,10 +181,6 @@ if(userid==null)
 </table>
 </form>
 </div>
-
-
-
-
-
+<h1>${message}</h1>
 </body>
 </html>

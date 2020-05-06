@@ -11,6 +11,7 @@ import com.cts.Academyportal.models.ModuleReg;
 public interface ModuleDao  extends CrudRepository<ModuleReg,Integer>{
 	
 	public List<ModuleReg> findByProficiencylevel(String proficiencylevel);
-	
+	public List<ModuleReg> findByTechnology(String Technology);
+
 	
 }

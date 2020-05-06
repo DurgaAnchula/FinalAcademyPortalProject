@@ -13,8 +13,10 @@ public interface BatchDao extends CrudRepository<Batch,Integer>{
 
 	public List<Batch> findByFacultyId(long facultyId);
 	public Batch findById(int batchId);
-	
+	//public List<Batch> findByEmployeeId(long employeeId);
+
 	public List<Batch> findByBatchStartDate(Date  batchStartDate);
+	public List<Batch> findByBatchEndDate(Date  batchEndDate);
 
 
 }
